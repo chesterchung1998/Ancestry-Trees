@@ -1,0 +1,18 @@
+def is_ancestor(name1,name2,parent): 
+    while True:
+        name2 = parent[name2]
+        if name2 not in parent and name2 != name1:
+            return False
+        if name2 != name1:
+            continue
+        elif name2 == name1:
+            return True
+
+def is_related(name1,name2,parent):
+    while name2 in parent:
+        name2 = parent[name2]
+    while name1 in parent:
+        name1 = parent[name1]
+    if name1 == name2:
+        return True
+    return False
